@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>System Health Dashboard</title>
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <div>
+            <h1>📊 System Health Dashboard</h1>
+            <p>Real-time system performance monitoring</p>
+        </div>
+
+        <div class="live-status">
+            <span class="pulse"></span>
+            LIVE
+        </div>
+    </header>
+
+
+    <!-- SYSTEM STATUS -->
+    <section class="status-banner">
+
+        <div>
+            <h2>✓ System Online</h2>
+            <p>All systems are operational</p>
+        </div>
+
+        <span class="healthy-badge">
+            ● HEALTHY
+        </span>
+
+    </section>
+
+
+    <!-- RESOURCE TITLE -->
+    <h2 class="section-title">System Resources</h2>
+
+
+    <!-- METRIC CARDS -->
+    <section class="metrics">
+
+        <!-- CPU -->
+        <div class="metric-card">
+
+            <div class="metric-header">
+                <span>⚙️ CPU Usage</span>
+            </div>
+
+            <h2 th:text="${cpu} + '%'">0%</h2>
+
+            <div class="progress">
+                <div class="progress-bar cpu"
+                     th:style="'width:' + ${cpu} + '%'">
+                </div>
+            </div>
+
+            <p class="metric-status">Processor utilization</p>
+
+        </div>
+
+
+        <!-- MEMORY -->
+        <div class="metric-card">
+
+            <div class="metric-header">
+                <span>🧠 Memory Usage</span>
+            </div>
+
+            <h2 th:text="${memory} + '%'">0%</h2>
+
+            <div class="progress">
+                <div class="progress-bar memory"
+                     th:style="'width:' + ${memory} + '%'">
+                </div>
+            </div>
+
+            <p class="metric-status">RAM utilization</p>
+
+        </div>
+
+
+        <!-- DISK -->
+        <div class="metric-card">
+
+            <div class="metric-header">
+                <span>💾 Disk Usage</span>
+            </div>
+
+            <h2 th:text="${disk} + '%'">0%</h2>
+
+            <div class="progress">
+                <div class="progress-bar disk"
+                     th:style="'width:' + ${disk} + '%'">
+                </div>
+            </div>
+
+            <p class="metric-status">Storage utilization</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SYSTEM INFORMATION -->
+
+    <h2 class="section-title">System Information</h2>
+
+    <section class="system-info">
+
+        <div class="info-card">
+            <span class="info-icon">🖥️</span>
+
+            <div>
+                <p>Hostname</p>
+                <strong th:text="${hostname}">Hostname</strong>
+            </div>
+        </div>
+
+
+        <div class="info-card">
+            <span class="info-icon">💻</span>
+
+            <div>
+                <p>Operating System</p>
+                <strong th:text="${os}">OS</strong>
+            </div>
+        </div>
+
+
+        <div class="info-card">
+            <span class="info-icon">☕</span>
+
+            <div>
+                <p>Java Version</p>
+                <strong th:text="${javaVersion}">Java</strong>
+            </div>
+        </div>
+
+
+        <div class="info-card">
+            <span class="info-icon">⏱️</span>
+
+            <div>
+                <p>Application Uptime</p>
+                <strong th:text="${uptime}">Uptime</strong>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            <span class="pulse small"></span>
+            Monitoring Active
+        </span>
+
+        <span>
+            Auto refresh: 5 seconds
+        </span>
+
+    </footer>
+
+</div>
+
+
+<script>
+    // Refresh dashboard every 5 seconds
+    setTimeout(function () {
+        window.location.reload();
+    }, 5000);
+</script>
+
+</body>
+</html>
