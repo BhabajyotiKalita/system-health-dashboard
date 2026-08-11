@@ -139,7 +139,7 @@ java -jar target/system-health-dashboard-1.0.0.jar
 Open your browser and visit:
 
 ```text
-http://localhost:4000
+http://localhost:8080
 ```
 
 ---
@@ -192,7 +192,7 @@ User / Browser
       │
       │ Reverse Proxy
       ▼
-Spring Boot :4000
+Spring Boot :8080
       │
       ▼
 System Health Dashboard
